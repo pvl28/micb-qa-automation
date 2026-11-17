@@ -1,0 +1,19 @@
+# Build output, reports, screenshots, logs
+target/
+learning-lab/target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+
+# Local secrets (never commit)
+.env
+*.env
+xray-credentials*

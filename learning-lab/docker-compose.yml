@@ -1,0 +1,20 @@
+# Optional: start the same services by hand to explore them (psql, RabbitMQ UI at http://localhost:15672).
+# The automated tests do NOT need this file: Testcontainers starts its own containers.
+# Credentials below are local throw-away defaults for a learning sandbox only.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: lab
+      POSTGRES_USER: lab
+      POSTGRES_PASSWORD: lab
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
